@@ -11,12 +11,12 @@ def get_recipe_for(main_ingredient: str) -> dict:
     """
     # YOUR CODE HERE:
     # 1. Use `requests` to fetch a list of recipes with `main_ingredient`
-    #    - Here is a useful URL: www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
+    #    - Here is a useful URL: https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
     #    - Hint: `response.json()`
     # 2. Choose a random recipe from the list
     #    - Hint: `random.choice()`
     # 3. Use `requests` again to fetch the full recipe instructions
-    #    - Here is another useful URL: www.themealdb.com/api/json/v1/1/lookup.php?i=52772
+    #    - Here is another useful URL: https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
     # 4. Fill in the details of the returned object in the format below
     return dict(
         name="",
@@ -64,10 +64,11 @@ def recipe(ingredient):
 #    - Make the list persistent in a JSON file.
 #    - Redirect the client to the page of the newly saved recipe.
 #    - Hint: `flask.request`
-#    - Hint 2: `flast.redirect`
+#    - Hint 2: `flask.redirect`
 #    - Hint 3: Use `requests` to check if it works.
-# 2. "/personal/<name>/<json:bool>" with GET method:
-#    - Returns the recipe page for the given name, or a JSON if `json == 1`
+# 2. "/personal/<name>/<int:json>" with GET method:
+#    - Returns the recipe page if `json == 0`, or a JSON if `json == 1`.
+#    - Return a 404 response for flag values other than 0 or 1.
 # 3. "/personal/<name>" with DELETE method:
 #    - Delete the recipe with the given name
 # 4. "/personal/all" with GET method:
